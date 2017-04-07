@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Reconhecimento de cor oqvestir</title>
+    <script src="build/angular.min.js"></script>
+    <script src="build/angular-resource.min.js"></script>
+    <script src="build/tracking.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+    <script src="resource.js"></script>
+
+    <style>
+        .rect {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: -1000px;
+            top: -1000px;
+        }
+    </style>
+</head>
+
+<body ng-app="oqvApp">
+
+    <div ng-controller="mainCtrl">
+        {{hello}}
+    </div>
+
+</body>
+
+<!--<body>
+    <div class="demo-frame">
+        <div class="demo-container">
+            <img id="img" src="detail_1 (1).jpg" />
+        </div>
+    </div>
+    <script>
+        window.onload = function () {
+
+            tracking.ColorTracker.registerColor('yellow', function (r, g, b) {
+                var threshold = 50,
+                    dx = r - 255,
+                    dy = g - 255,
+                    dz = b - 0;
+
+                if ((r - b) >= threshold && (g - b) >= threshold) {
+                    return true;
+                }
+                return dx * dx + dy * dy + dz * dz < 10000;
+            });
+
+            tracking.ColorTracker.registerColor('red', function (r, g, b) {
+                var thresholdGreen = 50,
+                    thresholdBlue = 70,
+                    dx = r - 255,
+                    dy = g - 0,
+                    dz = b - 0;
+
+                if ((g - r) >= thresholdGreen && (b - r) >= thresholdBlue) {
+                    return true;
+                }
+                return dx * dx + dy * dy + dz * dz < 6400;
+            });
+
+            tracking.ColorTracker.registerColor('black', function (r, g, b) {
+                var threshold = 50,
+                    dx = r - 0,
+                    dy = g - 0,
+                    dz = b - 0;
+
+                if ((r - g) >= threshold && (b - g) >= threshold) {
+                    return true;
+                }
+                return dx * dx + dy * dy + dz * dz < 19600;
+            });
+
+            tracking.ColorTracker.registerColor('white', function (r, g, b) {
+                var threshold = 50,
+                    dx = r - 242,
+                    dy = g - 241,
+                    dz = b - 236;
+
+                if ((r - g) >= threshold && (b - g) >= threshold) {
+                    return true;
+                }
+                return dx * dx + dy * dy + dz * dz < 19600;
+            });
+
+
+
+            var img = document.getElementById('img');
+            var demoContainer = document.querySelector('.demo-container');
+
+            var tracker = new tracking.ColorTracker(['yellow', 'black', 'white']);
+
+            console.log(tracker);
+
+            tracker.on('track', function (event) {
+                event.data.forEach(function (rect) {
+                    window.plot(rect.x, rect.y, rect.width, rect.height, rect.color);
+                });
+            });
+
+            tracking.track('#img', tracker);
+
+            window.plot = function (x, y, w, h, color) {
+                console.log(x, y, w, h, color);
+                var rect = document.createElement('div');
+                document.querySelector('.demo-container').appendChild(rect);
+                rect.classList.add('rect');
+                rect.style.border = '2px solid ' + color;
+                rect.style.width = w + 'px';
+                rect.style.height = h + 'px';
+                rect.style.left = (img.offsetLeft + x) + 'px';
+                rect.style.top = (img.offsetTop + y) + 'px';
+            };
+        };
+    </script>
+</body>-->
+
+</html>
